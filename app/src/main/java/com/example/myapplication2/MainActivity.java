@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity
     TextView total_textView;
     TextView textView6;
 
-
+    OnSeekBarChangeHandler seekBarHandler = new OnSeekBarChangeHandler();
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         tip_textView=(TextView) findViewById(R.id.tip_textView);
         total_textView=(TextView) findViewById(R.id.total_textView);
         textView6=(TextView) findViewById(R.id.textView6);
-        OnSeekBarChangeHandler seekBarHandler = new OnSeekBarChangeHandler();
+        seekBarHandler = new OnSeekBarChangeHandler();
         size_seekBar.setOnSeekBarChangeListener(seekBarHandler);
 
         TextWatcherHandler editTextHandler = new TextWatcherHandler();
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity
 
         public void onTextChanged(CharSequence s, int start, int before, int count)
         {
-            OnSeekBarChangeHandler seekBarHandler = new OnSeekBarChangeHandler();
             seekBarHandler.onProgressChanged(size_seekBar, size_seekBar.getProgress(), false);
         }
 
